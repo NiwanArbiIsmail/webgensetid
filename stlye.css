@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+header {
+    background: #007bff;
+    color: rgb(25, 21, 21);
+    padding: 20px 0;
+}
+
+section {
+    background: #003366; /* Warna biru lebih gelap agar kontras */
+    color: rgb(28, 26, 33);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Memperjelas teks di dalam section genset */
+#genset-section h2, 
+#genset-section ul li {
+    text-shadow: 3px 3px 6px rgba(12, 11, 11, 0.7); /* Efek bayangan lebih jelas */
+    font-weight: bold; /* Teks dibuat lebih tebal */
+    font-size: 20px; /* Ukuran teks diperbesar agar mudah dibaca */
+    line-height: 1.6; /* Jarak antar baris agar tidak terlalu rapat */
+    list-style: none; /* Menghilangkan bullet points yang terlihat di gambar */
+}
+
+/* Tambahkan padding pada ul agar rapi */
+#genset-section ul {
+    padding: 0;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #0056b3;
+}

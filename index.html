@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Service Genset Niwan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #007bff, #0056b3);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 50px 0;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        section {
+            background: rgba(255, 255, 255, 0.9);
+            margin: 40px auto;
+            padding: 30px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            color: black;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .floating-message {
+            position: fixed;
+            bottom: 50%;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            color: black;
+            font-size: 18px;
+            font-weight: bold;
+            width: 400px; /* Sesuaikan ukuran */
+            max-width: 90%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        
+        .floating-message .close {
+            cursor: pointer;
+            float: right;
+            font-size: 22px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Jasa Servis Genset Niwan</h1>
+        <p>Profesional & Terpercaya</p>
+    </header>
+    
+    <section id="pesan">
+        <h2>Pesan Servis</h2>
+        <p><b>Mohon booking minimal 1 hari sebelum pengerjaan.</b></p>
+        <form id="form-pemesanan" class="container">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="nama">Nama:</label>
+                    <input type="text" id="nama" name="nama" class="form-control" required>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="telepon">Telepon:</label>
+                    <input type="tel" id="telepon" name="telepon" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="alamat">Alamat:</label>
+                <input type="text" id="alamat" name="alamat" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="jenis">Jenis Servis:</label>
+                <select id="jenis" name="jenis" class="form-control">
+                    <option value="rutin">Servis Rutin</option>
+                    <option value="perbaikan">Perbaikan</option>
+                    <option value="suku-cadang">Penggantian Suku Cadang</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="merk">Merk Genset:</label>
+                <input type="text" id="merk" name="merk" class="form-control" placeholder="Contoh: Honda, Yamaha, Cummins" required>
+            </div>
+            <div class="form-group">
+                <label for="tanggal">Tanggal Booking:</label>
+                <input type="date" id="tanggal" name="tanggal" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Kirim</button>
+        </form>
+        <div id="thank-you" class="floating-message">
+            <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
+            Terima kasih sudah memesan jasa servis genset di kami. <br>
+            Kami akan segera melakukan survei ke lokasi setelah pesanan terbuat.
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("form-pemesanan").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let nama = document.getElementById("nama").value;
+            let telepon = document.getElementById("telepon").value;
+            let alamat = document.getElementById("alamat").value;
+            let jenis = document.getElementById("jenis").value;
+            let merk = document.getElementById("merk").value;
+            let tanggal = document.getElementById("tanggal").value;
+            let pesan = `Halo, saya ingin memesan jasa servis genset.\nNama: ${nama}\nTelepon: ${telepon}\nAlamat: ${alamat}\nJenis Servis: ${jenis}\nMerk Genset: ${merk}\nTanggal Booking: ${tanggal}`;
+            let whatsappURL = `https://api.whatsapp.com/send?phone=6285778278364&text=${encodeURIComponent(pesan)}`;
+            window.open(whatsappURL, "_blank");
+            document.getElementById("thank-you").style.display = "block";
+        });
+    </script>
+</body>
+</html>
